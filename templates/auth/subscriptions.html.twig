@@ -1,0 +1,59 @@
+{% extends "user.html.twig" %}
+
+{% block title %}Streemi - Abonnements
+{% endblock %}
+
+{% block body %}
+	<!-- Main Content -->
+	<main class="flex-1 py-10 px-5 sm:px-10">
+		<section>
+			<h1 class="text-lg font-medium text-black">Nos
+				<span class="font-bold text-red-600">abonnements</span>
+			</h1>
+			<p class="text-gray-400 text-lg mt-3">Profitez de notre catalogue exclusif de films & séries à prix concurentiel.</p>
+			<div class="flex items-center font-medium mt-8 bg-gray-100 border border-black/10 rounded-lg px-8 py-4">
+				<svg class="h-5 w-5 fill-current opacity-50 mr-2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+					<title>information</title>
+					<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+				</svg>
+				Votre abonnement actuel :
+				<span class="text-red-600 font-bold ml-2">Aucun</span>
+			</div>
+		</section>
+		<section class="mt-9">
+			<ul
+				class="grid grid-cols-2 gap-y-5 gap-x-5">
+				{% set subscriptions = [
+					{
+						'title': 'Abonnement 1 mois - HD',
+						'subtitle': 'Le moins chère',
+						'price': '3',
+						'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque in iure officiis suscipit vel.'
+					},
+					{
+						'title': 'Abonnement 1 mois - 4K HDR',
+						'subtitle': 'Parfait pour découvrir',
+						'price': '6',
+						'description': 'Ad asperiores autem deleniti eius enim expedita possimus sed. Ea illo itaque quam soluta veritatis.'
+					},
+					{
+						'title': 'Abonnement 12 mois - HD',
+						'subtitle': 'Parfait pour découvrir',
+						'price': '30',
+						'description': 'Blanditiis distinctio eaque et facilis id repellat saepe sint totam voluptas. Autem distinctio, esse laborum nam necessitatibus.'
+					},
+					{
+						'title': 'Abonnement 12 mois - 4K HDR 3D',
+						'subtitle': 'Parfait pour découvrir',
+						'price': '30',
+						'description': 'Dicta expedita iste magni maiores maxime natus nemo perspiciatis praesentium ratione rem, repellendus sunt vero vitae?'
+					}
+				] %}
+
+				{% for subscription in subscriptions %}
+					{% include 'includes/_subscription_card.html.twig' with subscription %}
+				{% endfor %}
+			</ul>
+		</section>
+	</main>
+{% endblock %}

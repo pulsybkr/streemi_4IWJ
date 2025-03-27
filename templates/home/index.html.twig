@@ -1,0 +1,113 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+	{% set movies = [
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/1/14/Tenet_movie_poster.jpg',
+						'title': 'Tenet',
+						'rank': '1',
+						'rating': '7.4',
+						'isWatched': false
+					},
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg',
+						'title': 'Fight Club',
+						'rank': '2',
+						'rating': '8.8',
+						'isWatched': true
+					},
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/8/8e/Dune_%282021_film%29.jpg',
+						'title': 'Dune',
+						'rank': '3',
+						'rating': '8.1',
+						'isWatched': false
+					},
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg',
+						'title': 'Interstellar',
+						'rank': '4',
+						'rating': '9.2',
+						'isWatched': false
+					},
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg',
+						'title': 'Matrix',
+						'rank': '5',
+						'rating': '7.1',
+						'isWatched': false
+					},
+					{
+						'image': 'https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg',
+						'title': 'Batman The Dark Knight',
+						'rank': '6',
+						'rating': '7.4',
+						'isWatched': false
+					},
+					{
+						'image': 'https://m.media-amazon.com/images/I/81vZ6tNxuoL._SY500_.jpg',
+						'title': 'John Wick 4',
+						'rank': '7',
+						'rating': '7.4',
+						'isWatched': false
+					},
+					{
+						'image': 'https://m.media-amazon.com/images/I/91zqGNzwk5L._AC_UF1000,1000_QL80_.jpg',
+						'title': 'Super Mario Bros',
+						'rank': '8',
+						'rating': '7.4',
+						'isWatched': false
+					},
+					{
+						'image': 'https://fr.web.img6.acsta.net/img/29/eb/29eb8341475fdb0b19b1d7b995b70e17.jpg',
+						'title': 'Le comte de Monte Cristo',
+						'rank': '9',
+						'rating': '7.4',
+						'isWatched': false
+					}
+				] %}
+
+	<!-- Main Content -->
+	<main class="flex-1 py-10 px-5 sm:px-10">
+		<section>
+			{% include 'includes/_navigation.html.twig' %}
+
+			{% include 'includes/_hero.html.twig' with {
+				'backgroundImage': 'https://resize.elle.fr/original/var/plain_site/storage/images/loisirs/cinema/news/inception-films-et-series-a-regarder-si-vous-aimez-le-film-avec-leonardo-dicaprio/97088011-1-fre-FR/Inception-5-films-et-series-a-regarder-si-vous-aimez-le-film-avec-Leonardo-DiCaprio.jpg',
+				'title': 'Inception',
+				'genres': ['Action', 'Adventure', 'Sci-Fi'],
+				'remainingTime': '1h42m restants',
+				'friends': [
+					{'name': 'Ami 1', 'avatar': 'https://random.imagecdn.app/100/100?a'},
+					{'name': 'Ami 2', 'avatar': 'https://random.imagecdn.app/100/100?b'},
+					{'name': 'Ami 3', 'avatar': 'https://random.imagecdn.app/100/100?c'}
+				]
+			} %}
+		</section>
+		<section class="mt-9">
+			<div class="flex items-center justify-between">
+				<span class="font-semibold text-gray-700 text-base">Tendances</span>
+				<div class="flex items-center space-x-2 fill-gray-500">
+					<svg class="h-7 w-7 rounded-full border p-1 hover:border-red-600 hover:fill-red-600 fill-gray-500" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+						<path d="M13.293 6.293L7.58 12l5.7 5.7 1.41-1.42 -4.3-4.3 4.29-4.293Z"></path>
+					</svg>
+					<svg class="h-7 w-7 rounded-full border p-1 hover:border-red-600 hover:fill-red-600 fill-gray-500" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+						<path d="M10.7 17.707l5.7-5.71 -5.71-5.707L9.27 7.7l4.29 4.293 -4.3 4.29Z"></path>
+					</svg>
+				</div>
+			</div>
+			<ul class="mt-4 grid grid-cols-2 gap-y-5 sm:grid-cols-3 gap-x-5">
+
+
+				{% for movie in movies %}
+					{% include 'includes/_movie_card.html.twig' with movie %}
+				{% endfor %}
+			</ul>
+		</section>
+	</main>
+	<!-- /Main Content -->
+{% endblock %}
